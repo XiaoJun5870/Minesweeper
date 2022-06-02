@@ -1,1 +1,1 @@
-# Rummi
+Minesweeper
