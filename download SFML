@@ -5,8 +5,13 @@
 在visual建立一個(c++)的(空白專案)
 在資源檔中加入新增一個.cpp
 先點選資源檔那排的{檔案名稱}後在點選專案中的屬性(屬性文字旁有個板手圖案)
-進到屬性後先把組態從<Debug>改成<所有組態>後點選C/C++
-回到剛下載的SFML的地方點進SFML點進include的資料夾裡面的絕對位置
-回到C/C++這找到 其他include目錄這行把剛複製的絕對位置貼進去後典籍套用
-再回到SFML資料夾這次點進lib資料夾複製裡面的絕對位置
-回到visual點選C/C++下一排的連接器中的一般找到其他城市庫目錄把剛lib的絕對位置貼進去
+進到屬性後先把組態從「Debug」改成「所有組態」後點選「C/C++」
+回到剛下載的SFML的地方點進SFML點進「include」的資料夾裡面的絕對位置
+回到「C/C++」這找到「其他include目錄」這行把剛複製的絕對位置貼進去後點套用
+再回到SFML資料夾這次點進「lib」資料夾複製裡面的絕對位置
+回到visual點選「C/C++」下一排的「連結器」中的一般找到其他城市庫目錄把剛lib的絕對位置貼進去後點選套用
+再從「連結器的「一般」換到「輸入」在其他相依性中加入這個 sfml-graphics.lib;sfml-system.lib;sfml-window.lib; 加在原本的東西前面在案套用
+再將剛剛的「所有組態」切換成「Debug」
+再把剛的sfml-graphics.lib;sfml-system.lib;sfml-window.lib;刪調換這個sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;在先按套用在確定
+再來打SFML檔案中bin的資料夾中的東西全部複製貼到剛開的visual的檔案中的.cpp檔那
+再來就是把程式放進剛開的visual中在把上放的執行模式改成Debug在按執行就成功了
