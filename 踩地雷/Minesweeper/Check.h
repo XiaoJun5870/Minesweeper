@@ -7,8 +7,8 @@ public:
 
 private:
 　int bomb;
-	int white;
-	int number;
+　int white;
+　int number;
 };
 
 #endif
