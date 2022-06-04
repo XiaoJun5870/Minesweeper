@@ -6,8 +6,9 @@ class Check
 public:
 
 private:
-　int touch;
-　int flag;
+　int bomb;
+	int white;
+	int number;
 };
 
 #endif
