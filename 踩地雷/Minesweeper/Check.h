@@ -7,7 +7,7 @@ public:
 
 private:
 　int touch;
-	int flag;
+　int flag;
 };
 
 #endif
