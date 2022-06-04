@@ -6,12 +6,11 @@ class Game
 public:
 	void Show(char m);
 	void SetMineLable(int i, bool left, bool right, bool up, bool down);
-    void NoMineAround(int pos);
-	bool Check();
-    void Initially();
-    void Touch();
-    void Start();
-	bool End();
+	void NoMineAround(int pos);
+	bool check();
+	void Initially();
+	void Touch();
+	
 private:
 	int map[100];                               /*地雷盤面*/
 	bool mine[100];                         /*偵測是否採到地雷用*/
