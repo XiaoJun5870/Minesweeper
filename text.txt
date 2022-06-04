@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cmath>
 #include<ctime>
+using namespace std;
 int map[100];                               /*地雷盤面*/
 bool map_info[100];                         /*偵測是否採到地雷用*/
 inline int Pos(int x, int y) {                /*位子函數*/
@@ -9,19 +10,19 @@ inline int Pos(int x, int y) {                /*位子函數*/
 
 
 void ShowMap(char m) {                             /*顯示盤面*/
-    std::cout << "  0123456789\n +----------+\n";
+    cout << "  0123456789\n +----------+\n";
     for (int x = 0; x < 10; x++) {
-        std::cout << x << '|';
+        cout << x << '|';
         for (int y = 0; y < 10; y++) {
             if (map_info[Pos(x, y)])
                 if (map[Pos(x, y)] == -1)
-                    std::cout << m;
-                else std::cout << map[Pos(x, y)];
-            else std::cout << ' ';
+                    cout << m;
+                else cout << map[Pos(x, y)];
+            else cout << ' ';
         }
-        std::cout << '|' << '\n';
+        cout << '|' << '\n';
     }
-    std::cout << " +----------+\n";
+    cout << " +----------+\n";
     return;
 }
 /*周圍地雷數設定*/
@@ -105,10 +106,10 @@ void Init() {                                /*初始化盤面*/
     }
     ShowMap(' ');
     unsigned int x, y;
-    std::cin >> x >> y;
+    cin >> x >> y;
     system("cls");
     if (x > 10 || y > 10)
-        std::cout << "Wrong position\n";
+        cout << "Wrong position\n";
     else
         map_info[Pos(x, y)] = true;
     srand(time(0));
@@ -133,10 +134,10 @@ void Init() {                                /*初始化盤面*/
 
 void Touch() {                                 /*踩*/
     unsigned int x, y;
-    std::cin >> x >> y;
+    cin >> x >> y;
     system("cls");
     if (x > 10 || y > 10)
-        std::cout << "Wrong position\n";
+        cout << "Wrong position\n";
     else
         map_info[Pos(x, y)] = true;
     if (map[Pos(x, y)] == 0) NoMineAround(Pos(x, y));
@@ -154,7 +155,7 @@ bool Check() {                                 /*檢查勝利或失敗條件是�
                         map_info[a] = true;
                 }
                 ShowMap('*');
-                std::cout << " Game over!\n";
+                cout << " Game over!\n";
                 return false;
             }
         }
@@ -164,7 +165,7 @@ bool Check() {                                 /*檢查勝利或失敗條件是�
             map_info[a] = true;
         }
         ShowMap('M');
-        std::cout << " Congratulations!!\n";
+        cout << " Congratulations!!\n";
         return false;
     }
     else return true;
@@ -181,14 +182,14 @@ void Start() {                                 /*開始遊戲*/
 }
 bool End() {                                   /*結束遊戲*/
     char command;
-    std::cout << "Do you want to play again?(y/n)";
-    std::cin >> command;
+    cout << "Do you want to play again?(y/n)";
+    cin >> command;
     if (command == 'y' || command == 'Y') {
         system("cls");
         return true;
     }
     else if (command == 'n' || command == 'N')return false;
-    else std::cout << "Wrong command";
+    else cout << "Wrong command";
 }
 
 int main() {
