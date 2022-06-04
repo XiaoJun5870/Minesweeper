@@ -6,9 +6,7 @@ class Check
 public:
 
 private:
-　int bomb;
-　int white;
-　int number;
+　
 };
 
 #endif
