@@ -6,7 +6,8 @@ class Game
 public:
 
 private:
-
+　int touch;
+	int flag;
 };
 
 #endif
