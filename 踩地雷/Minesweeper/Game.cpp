@@ -96,7 +96,7 @@ void Game::NoMineAround(int p) {
         }
     }    return;
 }
-bool Game::Check() {                                 /*檢查勝利或失敗條件是否滿足*/
+bool Game::check() {                                 /*檢查勝利或失敗條件是否滿足*/
     register short set = 0;
     for (short i = 0; i < 100; i++) {
         if ((mine)) {
@@ -166,28 +166,3 @@ void Game::Touch() {                                 /*踩*/
     if (map[Position(x, y)] == 0) NoMineAround(Position(x, y));
     return;
 }
-
-
-void Game::Start() {                                 /*開始遊戲*/
-    Initially();
-    bool notboom = true;
-    while (notboom) {
-        Show(' ');
-        Touch();
-        notboom = Check();
-    }
-    return;
-}
-
-bool Game::End() {                                   /*結束遊戲*/
-    char answer;
-    cout << "Do you want to play again?(y/n)";
-    cin >> answer;
-    if (answer == 'y' || answer == 'Y') {
-        system("cls");
-        return true;
-    }
-    else if (answer == 'n' || answer == 'N')return false;
-    else cout << "Wrong answer";return false;
-}
-
