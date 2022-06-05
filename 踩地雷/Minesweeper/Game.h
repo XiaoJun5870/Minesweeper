@@ -10,7 +10,7 @@ public:
 	bool check();
 	void Initially();
 	void Touch();
-	
+
 private:
 	int map[100];                               /*地雷盤面*/
 	bool mine[100];                         /*偵測是否採到地雷用*/
