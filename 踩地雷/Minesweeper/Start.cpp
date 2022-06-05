@@ -2,9 +2,9 @@
 #include<cmath>
 #include<ctime>
 #include "Game.h"
-#include "Check.h"
+#include "Start.h"
 using namespace std;
-void Check::Start() {                                 /*開始遊戲*/
+void Start::start() {                                 /*開始遊戲*/
     Game c;
     c.Initially();
     bool notboom = true;
@@ -16,7 +16,7 @@ void Check::Start() {                                 /*開始遊戲*/
     return;
 }
 
-bool Check::End() {                                   /*結束遊戲*/
+bool Start::end() {                                   /*結束遊戲*/
     char answer;
     cout << "Do you want to play again?(y/n)";
     cin >> answer;
