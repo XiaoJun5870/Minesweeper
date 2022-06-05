@@ -1,11 +1,11 @@
-#ifndef Check_h
-#define Check_h
+#ifndef Start_h
+#define Start_h
 
-class Check
+class Start
 {
 public:
-	void Start();
-	bool End();
+	void start();
+	bool end();
 private:
 	int map[100];                               /*地雷盤面*/
 	bool mine[100];                         /*偵測是否採到地雷用*/
