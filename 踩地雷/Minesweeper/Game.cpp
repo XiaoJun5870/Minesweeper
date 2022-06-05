@@ -2,7 +2,7 @@
 #include<cmath>
 #include<ctime>
 #include "Game.h"
-#include "Check.h"
+#include "Start.h"
 using namespace std;
 
 
