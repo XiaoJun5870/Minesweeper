@@ -2,16 +2,15 @@
 #include<cmath>
 #include<ctime>
 #include "Game.h"
-#include "Check.h"
+#include "Start.h"
 using namespace std;
 
 int main() {
     bool play = true;
-    Game a;
-    Check b;
+    Start b;
     while (play) {
-        b.Start();
-        play = b.End();
+        b.start();
+        play = b.end();
     }
     return 0;
 }
