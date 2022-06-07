@@ -6,9 +6,9 @@
 using namespace std;
 
 
-void Game::Show(char m) {                             /*顯示版面*/
+void Game::Show(char m) {/*顯示版面*/
 
-    cout << "  0123456789\n +----------+\n";
+    cout << "  0123456789\n +----------+\n";/*地圖框架*/
     for (int x = 0; x < 10; x++) {
         cout << x << '|';
         for (int y = 0; y < 10; y++) {
@@ -18,13 +18,13 @@ void Game::Show(char m) {                             /*顯示版面*/
                 else cout << map[Position(x, y)];
             else cout << ' ';
         }
-        cout << '|' << '\n';
+        cout << '|' << '\n';/*地圖框架*/
     }
-    cout << " +----------+\n";
-    return;
+    cout << " +----------+\n";/*地圖框架*/
+    return;/*重複執行*/
 }
-/*周圍地雷數設定*/
-void Game::SetMineLable(int i, bool left, bool right, bool up, bool down) {
+
+void Game::SetMineLable(int i, bool left, bool right, bool up, bool down) {/*周圍地雷數量*/
     if (!up) {
         if ((map[i - 11] != -1) && !left)
             map[i - 11]++;
@@ -46,7 +46,7 @@ void Game::SetMineLable(int i, bool left, bool right, bool up, bool down) {
             map[i + 11]++;
     }
 }
-void Game::NoMineAround(int p) {
+void Game::NoMineAround(int p) {/*連鎖*/
     bool l = (p % 10 == 0) ? true : false,
         r = (p % 10 == 9) ? true : false,
         u = (p / 10 == 0) ? true : false,
@@ -94,9 +94,9 @@ void Game::NoMineAround(int p) {
             if (map[p + 9] == 0)
                 NoMineAround(p + 9);
         }
-    }    return;
+    }    return;/*重複執行*/
 }
-bool Game::check() {                                 /*檢查勝利或失敗條件是否滿足*/
+bool Game::check() {/*檢查勝利或失敗條件是否滿足*/
     register short set = 0;
     for (short i = 0; i < 100; i++) {
         if ((mine)) {
@@ -106,8 +106,8 @@ bool Game::check() {                                 /*檢查勝利或失敗條�
                     if (map[a] == -1)
                         mine[a] = true;
                 }
-                Show('*');
-                cout << " Game over!\n";
+                Show('*');/*秀出所有地雷*/
+                cout << "\tGame over!\n";
                 return false;
             }
         }
@@ -116,26 +116,26 @@ bool Game::check() {                                 /*檢查勝利或失敗條�
         for (short a = 0; a < 100; a++) {
             mine[a] = true;
         }
-        Show('M');
-        cout << " Congratulations!!\n";
+        Show('M');/*秀出所有地雷*/
+        cout << "\tCongratulations!!\n";
         return false;
     }
     else return true;
 }
-void Game::Initially() {                                /*初始化盤面*/
+void Game::Initially() {/*初始化盤面*/
     for (int i = 0; i < 100; i++) {
         map[i] = 0;
         mine[i] = false;
     }
-    Show(' ');
+    Show(' ');/*秀出地圖*/
     unsigned int x, y;
-    cin >> x >> y;
+    cin >> x >> y;/*輸入座標*/
     system("cls");
     if (x > 10 || y > 10)
         cout << "Wrong position\n";
     else
         mine[Position(x, y)] = true;
-    srand(time(0));
+    srand(time(0));/*隨機*/
     int mine_number = 0;
     bool l, r, u, d;
     while (mine_number < 10) {
@@ -152,17 +152,17 @@ void Game::Initially() {                                /*初始化盤面*/
         }
     }
     if (map[Position(x, y)] == 0) NoMineAround(Position(x, y));
-    return;
+    return;/*重複執行*/
 }
 
-void Game::Touch() {                                 /*踩*/
+void Game::Touch() {/*踩*/
     unsigned int x, y;
     cin >> x >> y;
     system("cls");
-    if (x > 10 || y > 10)
+    if (x > 10 || y > 10)/*超出地圖*/
         cout << "Wrong position\n";
     else
         mine[Position(x, y)] = true;
     if (map[Position(x, y)] == 0) NoMineAround(Position(x, y));
-    return;
+    return;/*重複執行*/
 }
